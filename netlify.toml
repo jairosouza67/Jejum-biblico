@@ -1,8 +1,2 @@
 [build]
-  command = "yarn prisma generate && next build"
-  publish = "dist"
-
-[[redirects]]
-  from = "/*"
-  to = "/index.html"
-  status = 200
+  command = "yarn prisma generate && yarn build"
