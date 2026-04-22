@@ -1,0 +1,227 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Core brand palette — Jejum Bíblico na Prática */
+    /* cream/off-white background */
+    --background: 42 45% 97%;
+    --foreground: 155 42% 12%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 155 42% 12%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 155 42% 12%;
+
+    /* deep forest green */
+    --primary: 158 58% 18%;
+    --primary-foreground: 42 45% 97%;
+
+    /* sage/pastel green */
+    --secondary: 140 22% 88%;
+    --secondary-foreground: 158 58% 18%;
+
+    --muted: 42 30% 94%;
+    --muted-foreground: 155 15% 38%;
+
+    /* soft warm accent (light gold) */
+    --accent: 42 60% 92%;
+    --accent-foreground: 158 58% 18%;
+
+    --destructive: 0 70% 50%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 140 18% 86%;
+    --input: 140 18% 86%;
+    --ring: 38 55% 52%;
+
+    --radius: 0.5rem;
+    --radius-sm: calc(0.5rem - 2px);
+    --radius-lg: calc(0.5rem + 4px);
+    --radius-full: 9999px;
+
+    --spacing-xs: 4px;
+    --spacing-sm: 8px;
+    --spacing-md: 16px;
+    --spacing-lg: 24px;
+    --spacing-xl: 32px;
+    --spacing-2xl: 48px;
+    --spacing-3xl: 64px;
+
+    --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05), 0 1px 3px 0 rgb(0 0 0 / 0.06);
+    --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.08), 0 2px 4px -2px rgb(0 0 0 / 0.05);
+    --shadow-lg: 0 14px 30px -8px rgb(13 59 46 / 0.18), 0 6px 10px -4px rgb(0 0 0 / 0.05);
+
+    --duration-fast: 150ms;
+    --duration-normal: 250ms;
+    --duration-slow: 350ms;
+
+    --chart-1: 158 58% 18%;
+    --chart-2: 140 30% 50%;
+    --chart-3: 38 55% 52%;
+    --chart-4: 42 30% 85%;
+    --chart-5: 12 50% 55%;
+
+    /* Custom brand tokens */
+    --brand-forest: 158 58% 14%;      /* #0D3B2E-ish */
+    --brand-forest-dark: 158 60% 10%;
+    --brand-sage: 140 22% 72%;
+    --brand-cream: 42 45% 97%;
+    --brand-cream-dark: 42 35% 92%;
+    --brand-gold: 38 62% 52%;          /* #C9A24C-ish */
+    --brand-gold-soft: 42 70% 85%;
+  }
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  * {
+    border-color: hsl(var(--border));
+  }
+
+  body {
+    background-color: hsl(var(--background));
+    color: hsl(var(--foreground));
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+
+  ::selection {
+    background-color: hsl(var(--brand-gold) / 0.25);
+    color: hsl(var(--brand-forest));
+  }
+
+  ::-webkit-scrollbar { width: 8px; height: 8px; }
+  ::-webkit-scrollbar-track { background-color: hsl(var(--brand-cream-dark)); }
+  ::-webkit-scrollbar-thumb { background-color: hsl(var(--brand-sage)); border-radius: 9999px; }
+  ::-webkit-scrollbar-thumb:hover { background-color: hsl(var(--primary)); }
+
+  /* Suppress hydration warnings */
+  [data-hydration-error] { display: none !important; }
+}
+
+@layer utilities {
+  .font-serif {
+    font-family: var(--font-serif), 'Cormorant Garamond', Georgia, serif;
+  }
+
+  .font-sans-clean {
+    font-family: var(--font-sans), system-ui, sans-serif;
+  }
+
+  .bg-brand-cream { background-color: hsl(var(--brand-cream)); }
+  .bg-brand-cream-dark { background-color: hsl(var(--brand-cream-dark)); }
+  .bg-brand-forest { background-color: hsl(var(--brand-forest)); }
+  .bg-brand-forest-dark { background-color: hsl(var(--brand-forest-dark)); }
+  .bg-brand-sage { background-color: hsl(var(--brand-sage)); }
+  .bg-brand-gold { background-color: hsl(var(--brand-gold)); }
+  .bg-brand-gold-soft { background-color: hsl(var(--brand-gold-soft)); }
+
+  .text-brand-forest { color: hsl(var(--brand-forest)); }
+  .text-brand-forest-dark { color: hsl(var(--brand-forest-dark)); }
+  .text-brand-sage { color: hsl(var(--brand-sage)); }
+  .text-brand-gold { color: hsl(var(--brand-gold)); }
+  .text-brand-cream { color: hsl(var(--brand-cream)); }
+
+  .border-brand-gold { border-color: hsl(var(--brand-gold)); }
+  .border-brand-sage { border-color: hsl(var(--brand-sage)); }
+  .border-brand-forest { border-color: hsl(var(--brand-forest)); }
+
+  .hero-overlay {
+    background:
+      linear-gradient(180deg, hsl(var(--brand-forest-dark) / 0.55) 0%, hsl(var(--brand-forest) / 0.7) 100%);
+  }
+
+  .cta-gold {
+    background: linear-gradient(180deg, hsl(var(--brand-gold) / 1) 0%, hsl(38 62% 46%) 100%);
+    color: hsl(var(--brand-forest-dark));
+    box-shadow:
+      0 10px 20px -8px hsl(var(--brand-gold) / 0.55),
+      0 2px 0 0 hsl(38 62% 40%) inset;
+    transition: transform .25s ease, box-shadow .25s ease, filter .25s ease;
+  }
+  .cta-gold:hover {
+    transform: translateY(-2px);
+    filter: brightness(1.05);
+    box-shadow:
+      0 14px 28px -6px hsl(var(--brand-gold) / 0.65),
+      0 2px 0 0 hsl(38 62% 40%) inset;
+  }
+  .cta-gold:active {
+    transform: translateY(0);
+  }
+
+  .paper-card {
+    background: hsl(var(--card));
+    border: 1px solid hsl(var(--border));
+    box-shadow: var(--shadow-md);
+  }
+
+  .divider-dot {
+    display: inline-block; width: 6px; height: 6px; border-radius: 9999px;
+    background: hsl(var(--brand-gold));
+  }
+
+  .fade-up {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 700ms ease-out, transform 700ms ease-out;
+    will-change: opacity, transform;
+  }
+  .fade-up.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* Ebook 3D mockup styles */
+  .ebook-scene {
+    perspective: 1600px;
+  }
+  .ebook-book {
+    position: relative;
+    width: 300px;
+    height: 420px;
+    transform-style: preserve-3d;
+    transform: rotateY(-22deg) rotateX(2deg);
+    transition: transform .6s ease;
+  }
+  .ebook-book:hover {
+    transform: rotateY(-12deg) rotateX(2deg);
+  }
+  .ebook-cover {
+    position: absolute; inset: 0;
+    border-radius: 4px 10px 10px 4px;
+    box-shadow:
+      0 30px 60px -20px rgba(13, 59, 46, 0.55),
+      0 18px 36px -10px rgba(0,0,0,0.25);
+    overflow: hidden;
+  }
+  .ebook-spine {
+    position: absolute;
+    left: 0; top: 0; bottom: 0;
+    width: 28px;
+    background: linear-gradient(90deg, hsl(var(--brand-forest-dark)) 0%, hsl(var(--brand-forest)) 50%, hsl(var(--brand-forest) / 0.9) 100%);
+    transform: rotateY(-90deg) translateX(-14px);
+    transform-origin: left center;
+    border-radius: 2px 0 0 2px;
+  }
+  .ebook-pages {
+    position: absolute;
+    top: 4px; bottom: 4px; right: -4px;
+    width: 10px;
+    background: repeating-linear-gradient(90deg, #f5eede 0 1px, #fff 1px 2px);
+    transform: rotateY(-90deg) translateX(4px);
+    transform-origin: right center;
+  }
+
+  @media (max-width: 640px) {
+    .ebook-book { width: 220px; height: 310px; }
+  }
+}
