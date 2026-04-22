@@ -1,5 +1,5 @@
 [build]
-  command = "npx prisma generate && next build"
+  command = "npx prisma@6.7.0 generate && next build"
   publish = "dist"
 
 [[redirects]]
