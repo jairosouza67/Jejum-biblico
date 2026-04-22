@@ -9,8 +9,6 @@ const dmSans = DM_Sans({ subsets: ['latin'], variable: '--font-sans', display: '
 const cormorant = Cormorant_Garamond({ subsets: ['latin'], weight: ['400','500','600','700'], variable: '--font-serif', display: 'swap' })
 const jetbrainsMono = JetBrains_Mono({ subsets: ['latin'], variable: '--font-mono', display: 'swap' })
 
-export const dynamic = 'force-dynamic'
-
 export const metadata: Metadata = {
   title: 'Jejum Bíblico na Prática — Um guia simples para jejuar com propósito',
   description: 'Aprenda a praticar o jejum de forma bíblica, com direção, equilíbrio e propósito — mesmo que você nunca tenha feito antes.',
