@@ -1,5 +1,5 @@
 [build]
-  command = "yarn build"
+  command = "npx prisma generate && next build"
   publish = "dist"
 
 [[redirects]]
