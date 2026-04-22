@@ -39,10 +39,15 @@ export default function CTAButton({
     <a
       href={href}
       onClick={handleClick}
-      className={`cta-gold inline-flex items-center justify-center gap-2 font-semibold rounded-md tracking-wide uppercase ${sizeClasses} ${className}`}
+      className={`cta-gold group inline-flex items-center justify-center gap-2 font-semibold rounded-md tracking-[0.16em] uppercase ${sizeClasses} ${className}`}
     >
       <span>{children}</span>
-      {icon && <ArrowRight className="h-4 w-4 sm:h-5 sm:w-5" aria-hidden="true" />}
+      {icon && (
+        <ArrowRight
+          className="h-4 w-4 sm:h-5 sm:w-5 transition-transform duration-300 group-hover:translate-x-1"
+          aria-hidden="true"
+        />
+      )}
     </a>
   )
 }

@@ -1,6 +1,6 @@
 'use client'
 
-import { useEffect, useRef, useState, type ReactNode } from 'react'
+import { createElement, useEffect, useRef, useState, type ReactNode, type Ref } from 'react'
 
 type RevealProps = {
   children: ReactNode
@@ -38,14 +38,13 @@ export default function Reveal({ children, delay = 0, className = '', as = 'div'
     return () => observer?.disconnect?.()
   }, [])
 
-  const Tag = as as any
-  return (
-    <Tag
-      ref={ref as any}
-      style={{ transitionDelay: `${delay}ms` }}
-      className={`fade-up ${visible ? 'is-visible' : ''} ${className}`}
-    >
-      {children}
-    </Tag>
+  return createElement(
+    as,
+    {
+      ref: ref as Ref<HTMLElement>,
+      style: { transitionDelay: `${delay}ms` },
+      className: `fade-up ${visible ? 'is-visible' : ''} ${className}`,
+    },
+    children
   )
 }

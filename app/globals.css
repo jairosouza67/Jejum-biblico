@@ -105,6 +105,16 @@
 
   /* Suppress hydration warnings */
   [data-hydration-error] { display: none !important; }
+
+  @keyframes hero-pan {
+    0% { transform: scale(1) translate3d(0, 0, 0); }
+    100% { transform: scale(1.06) translate3d(-1.5%, -1%, 0); }
+  }
+
+  @keyframes ember-pulse {
+    0%, 100% { opacity: 0.42; transform: scale(1); }
+    50% { opacity: 0.8; transform: scale(1.08); }
+  }
 }
 
 @layer utilities {
@@ -128,6 +138,7 @@
   .text-brand-forest-dark { color: hsl(var(--brand-forest-dark)); }
   .text-brand-sage { color: hsl(var(--brand-sage)); }
   .text-brand-gold { color: hsl(var(--brand-gold)); }
+  .text-brand-gold-soft { color: hsl(var(--brand-gold-soft)); }
   .text-brand-cream { color: hsl(var(--brand-cream)); }
 
   .border-brand-gold { border-color: hsl(var(--brand-gold)); }
@@ -139,23 +150,51 @@
       linear-gradient(180deg, hsl(var(--brand-forest-dark) / 0.55) 0%, hsl(var(--brand-forest) / 0.7) 100%);
   }
 
+  .hero-overlay-rich {
+    background:
+      linear-gradient(145deg, hsl(214 68% 12% / 0.9) 0%, hsl(207 56% 20% / 0.82) 48%, hsl(20 78% 55% / 0.42) 100%);
+  }
+
+  .hero-image-pan {
+    animation: hero-pan 16s ease-in-out infinite alternate;
+    transform-origin: center;
+    will-change: transform;
+  }
+
+  .hero-orb {
+    animation: ember-pulse 4.8s ease-in-out infinite;
+  }
+
+  .surface-grid {
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(90deg, hsl(0 0% 100% / 0.08) 1px, transparent 1px),
+      linear-gradient(0deg, hsl(0 0% 100% / 0.08) 1px, transparent 1px);
+    background-size: 52px 52px;
+    pointer-events: none;
+  }
+
   .cta-gold {
-    background: linear-gradient(180deg, hsl(var(--brand-gold) / 1) 0%, hsl(38 62% 46%) 100%);
-    color: hsl(var(--brand-forest-dark));
+    border: 1px solid hsl(21 95% 58% / 0.75);
+    background: linear-gradient(120deg, hsl(20 94% 57%) 0%, hsl(13 92% 52%) 55%, hsl(22 92% 56%) 100%);
+    color: hsl(42 45% 97%);
     box-shadow:
-      0 10px 20px -8px hsl(var(--brand-gold) / 0.55),
-      0 2px 0 0 hsl(38 62% 40%) inset;
+      0 16px 28px -14px hsl(13 90% 40% / 0.5),
+      0 8px 16px -14px hsl(217 56% 22% / 0.7),
+      0 1px 0 0 hsl(36 100% 94% / 0.28) inset;
     transition: transform .25s ease, box-shadow .25s ease, filter .25s ease;
   }
   .cta-gold:hover {
-    transform: translateY(-2px);
-    filter: brightness(1.05);
+    transform: translateY(-2px) scale(1.01);
+    filter: saturate(1.08) brightness(1.02);
     box-shadow:
-      0 14px 28px -6px hsl(var(--brand-gold) / 0.65),
-      0 2px 0 0 hsl(38 62% 40%) inset;
+      0 22px 34px -16px hsl(13 90% 40% / 0.58),
+      0 10px 20px -18px hsl(217 56% 22% / 0.76),
+      0 1px 0 0 hsl(36 100% 94% / 0.35) inset;
   }
   .cta-gold:active {
-    transform: translateY(0);
+    transform: translateY(0) scale(0.995);
   }
 
   .paper-card {

@@ -125,7 +125,7 @@ export default function LandingPage() {
       {/* ========================================================== */}
       {/* 1. HERO SECTION                                             */}
       {/* ========================================================== */}
-      <section className="relative min-h-[100svh] flex items-center justify-center text-white bg-brand-forest-dark overflow-hidden">
+      <section className="relative isolate min-h-[100svh] flex items-center justify-center text-white bg-brand-forest-dark overflow-hidden">
         {/* Background image */}
         <div className="absolute inset-0">
           <Image
@@ -134,22 +134,26 @@ export default function LandingPage() {
             fill
             priority
             sizes="100vw"
-            className="object-cover"
+            className="object-cover hero-image-pan"
           />
-          <div
-            className="absolute inset-0"
-            style={{
-              background:
-                'linear-gradient(180deg, hsl(158 60% 10% / 0.72) 0%, hsl(158 58% 18% / 0.82) 100%)',
-            }}
-          />
+          <div className="absolute inset-0 hero-overlay-rich" />
+          <div className="absolute inset-0 surface-grid" aria-hidden="true" />
         </div>
+
+        <div
+          className="pointer-events-none absolute -top-20 left-1/2 h-72 w-72 -translate-x-1/2 rounded-full bg-[#ff7a40]/20 blur-3xl hero-orb"
+          aria-hidden="true"
+        />
+        <div
+          className="pointer-events-none absolute -bottom-24 -right-16 h-80 w-80 rounded-full bg-[#ffd0a4]/15 blur-3xl hero-orb"
+          aria-hidden="true"
+        />
 
         <div className="relative z-10 w-full max-w-[1200px] mx-auto px-6 py-24 sm:py-32 text-center">
           {/* Logo */}
           <Reveal>
             <div className="flex justify-center mb-8">
-              <div className="relative h-24 w-24 sm:h-28 sm:w-28 rounded-full overflow-hidden ring-2 ring-amber-200/30 shadow-lg bg-brand-forest-dark/40 backdrop-blur-sm">
+              <div className="relative h-24 w-24 sm:h-28 sm:w-28 rounded-full overflow-hidden ring-2 ring-[#ff9b71]/45 shadow-lg bg-brand-forest-dark/40 backdrop-blur-sm">
                 <Image
                   src="/logo.png"
                   alt="Jejum Bíblico na Prática"
@@ -166,10 +170,10 @@ export default function LandingPage() {
           </Reveal>
 
           <Reveal delay={220}>
-            <h1 className="font-serif text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-[1.05] tracking-tight mt-6 mb-8 max-w-4xl mx-auto text-amber-50">
+            <h1 className="font-serif uppercase text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-[1.05] tracking-tight mt-6 mb-8 max-w-4xl mx-auto text-[#f2efe3]">
               Você sente que precisa de uma resposta.
               <br />
-              <em className="not-italic text-amber-200">Mas não sabe mais o que fazer?</em>
+              <em className="not-italic text-[#f7c7b3]">Mas não sabe mais o que fazer?</em>
             </h1>
           </Reveal>
 
@@ -183,8 +187,8 @@ export default function LandingPage() {
           <Reveal delay={440}>
             <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-5">
               <CTAButton size="lg">Quero começar agora</CTAButton>
-              <div className="flex items-center gap-2 text-sm text-amber-50/80">
-                <ShieldCheck className="h-4 w-4 text-amber-200" />
+              <div className="flex items-center gap-2 text-sm text-amber-50/80 font-mono">
+                <ShieldCheck className="h-4 w-4 text-[#ffdcb8]" />
                 <span>Compra segura · Acesso imediato</span>
               </div>
             </div>
@@ -341,8 +345,18 @@ export default function LandingPage() {
       {/* ========================================================== */}
       {/* 4. BELIEF BREAK SECTION                                     */}
       {/* ========================================================== */}
-      <section className="py-20 sm:py-28 bg-brand-cream">
-        <div className="max-w-[1200px] mx-auto px-6 grid md:grid-cols-2 gap-12 md:gap-16 items-center">
+      <section className="relative py-20 sm:py-28 bg-[#f2efe8] overflow-hidden">
+        <div
+          className="absolute inset-0 pointer-events-none opacity-70"
+          aria-hidden="true"
+          style={{
+            backgroundImage:
+              'linear-gradient(90deg, hsl(210 40% 30% / 0.06) 1px, transparent 1px), linear-gradient(0deg, hsl(210 40% 30% / 0.06) 1px, transparent 1px)',
+            backgroundSize: '50px 50px',
+          }}
+        />
+
+        <div className="relative max-w-[1200px] mx-auto px-6 grid md:grid-cols-2 gap-12 md:gap-16 items-center">
           <Reveal>
             <div className="relative aspect-[4/5] w-full max-w-md mx-auto rounded-lg overflow-hidden bg-secondary shadow-[0_20px_40px_-20px_rgba(13,59,46,0.35)]">
               <Image
@@ -360,24 +374,24 @@ export default function LandingPage() {
               <Eyebrow>O problema não é você</Eyebrow>
             </Reveal>
             <Reveal delay={120}>
-              <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl leading-tight tracking-tight text-brand-forest mt-5 mb-6">
-                A maioria das pessoas <em className="not-italic text-brand-forest/80">nunca foi ensinada</em>.
+              <h2 className="font-serif uppercase text-3xl sm:text-4xl md:text-5xl leading-tight tracking-tight text-[#173a59] mt-5 mb-6">
+                A maioria das pessoas <em className="not-italic text-[#2d4f6d]/85">nunca foi ensinada</em>.
               </h2>
             </Reveal>
             <Reveal delay={240}>
-              <div className="space-y-4 text-lg text-brand-forest-dark/85 font-light leading-relaxed">
+              <div className="space-y-4 text-lg text-[#4c5f72] font-light leading-relaxed">
                 <p>Aprendem por vídeos soltos.</p>
                 <p>Por testemunhos de outras pessoas.</p>
                 <p>Por tentativas.</p>
               </div>
             </Reveal>
             <Reveal delay={360}>
-              <div className="mt-8 rounded-lg bg-white paper-card p-6">
-                <p className="text-brand-forest-dark/80 leading-relaxed">
+              <div className="mt-8 rounded-lg bg-[#f9f8f4] border border-[#d7d2ca] shadow-[0_14px_28px_-18px_rgba(23,58,89,0.35)] p-6">
+                <p className="text-[#44576a] leading-relaxed">
                   E acabam achando que jejum é apenas{' '}
                   <span className="italic">“ficar sem comer”</span>.
                 </p>
-                <p className="mt-3 font-serif text-2xl text-brand-forest">Mas não é.</p>
+                <p className="mt-3 font-serif uppercase text-2xl text-[#173a59]">Mas não é.</p>
               </div>
             </Reveal>
           </div>
@@ -695,20 +709,20 @@ export default function LandingPage() {
       {/* ========================================================== */}
       {/* 9. OFFER SECTION                                            */}
       {/* ========================================================== */}
-      <section id="oferta" className="py-20 sm:py-28 bg-brand-cream-dark">
+      <section id="oferta" className="py-20 sm:py-28 bg-[#efece6]">
         <div className="max-w-[1200px] mx-auto px-6">
           <Reveal>
             <div className="max-w-3xl mx-auto">
-              <div className="rounded-2xl bg-white overflow-hidden shadow-[0_30px_60px_-20px_rgba(13,59,46,0.35)] border border-brand-sage/60">
+              <div className="rounded-2xl bg-[#f8f7f4] overflow-hidden shadow-[0_30px_60px_-20px_rgba(23,58,89,0.28)] border border-[#d8d2c7]">
                 {/* Top strip */}
-                <div className="bg-brand-forest text-amber-50 px-6 sm:px-10 py-5 flex flex-wrap items-center justify-between gap-3">
+                <div className="bg-[#14385a] text-[#eef3f7] px-6 sm:px-10 py-5 flex flex-wrap items-center justify-between gap-3">
                   <div className="flex items-center gap-3">
-                    <Download className="h-5 w-5 text-amber-300" />
+                    <Download className="h-5 w-5 text-[#f2c77f]" />
                     <span className="text-sm uppercase tracking-[0.2em] font-semibold">
                       Acesso imediato
                     </span>
                   </div>
-                  <div className="flex items-center gap-3 text-amber-50/80">
+                  <div className="flex items-center gap-3 text-[#e8edf3]/85">
                     <Smartphone className="h-4 w-4" />
                     <span className="text-xs sm:text-sm">Leia no celular, no seu tempo</span>
                   </div>
@@ -716,21 +730,21 @@ export default function LandingPage() {
 
                 <div className="px-6 sm:px-10 py-10 sm:py-14 text-center">
                   <Eyebrow>Investimento</Eyebrow>
-                  <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl text-brand-forest mt-5 leading-tight">
+                  <h2 className="font-serif uppercase text-3xl sm:text-4xl md:text-5xl text-[#173a59] mt-5 leading-tight">
                     Acesso completo por
                   </h2>
 
                   <div className="mt-8 flex items-baseline justify-center gap-2">
-                    <span className="font-serif text-2xl sm:text-3xl text-brand-forest">R$</span>
-                    <span className="font-serif font-semibold text-7xl sm:text-8xl text-brand-forest leading-none">
+                    <span className="font-serif text-2xl sm:text-3xl text-[#173a59]">R$</span>
+                    <span className="font-serif font-semibold text-7xl sm:text-8xl text-[#173a59] leading-none">
                       19<span className="text-5xl sm:text-6xl">,90</span>
                     </span>
                   </div>
-                  <p className="mt-2 text-sm text-brand-forest-dark/60">pagamento único</p>
+                  <p className="mt-2 text-sm text-[#4e6072]/70">pagamento único</p>
 
-                  <p className="mt-8 max-w-xl mx-auto text-brand-forest-dark/80 font-light text-lg">
+                  <p className="mt-8 max-w-xl mx-auto text-[#4e6072]/90 font-light text-lg">
                     Um valor simples para algo que pode te dar{' '}
-                    <span className="text-brand-forest font-medium">clareza em um momento importante</span>{' '}
+                    <span className="text-[#173a59] font-medium">clareza em um momento importante</span>{' '}
                     da sua vida.
                   </p>
 
@@ -738,17 +752,17 @@ export default function LandingPage() {
                     <CTAButton size="lg">Quero acessar o guia</CTAButton>
                   </div>
 
-                  <div className="mt-10 grid sm:grid-cols-3 gap-4 text-sm text-brand-forest-dark/70">
+                  <div className="mt-10 grid sm:grid-cols-3 gap-4 text-sm text-[#4e6072]/90">
                     <div className="flex items-center justify-center gap-2">
-                      <Download className="h-4 w-4 text-brand-gold" />
+                      <Download className="h-4 w-4 text-[#df8359]" />
                       <span>Você recebe na hora</span>
                     </div>
                     <div className="flex items-center justify-center gap-2">
-                      <Clock className="h-4 w-4 text-brand-gold" />
+                      <Clock className="h-4 w-4 text-[#df8359]" />
                       <span>Leia no seu tempo</span>
                     </div>
                     <div className="flex items-center justify-center gap-2">
-                      <ShieldCheck className="h-4 w-4 text-brand-gold" />
+                      <ShieldCheck className="h-4 w-4 text-[#df8359]" />
                       <span>Compra 100% segura</span>
                     </div>
                   </div>
@@ -794,15 +808,16 @@ export default function LandingPage() {
             alt="Raios de luz atravessando floresta ao amanhecer"
             fill
             sizes="100vw"
-            className="object-cover opacity-40"
+            className="object-cover opacity-28"
           />
           <div
             className="absolute inset-0"
             style={{
               background:
-                'linear-gradient(180deg, hsl(158 60% 10% / 0.85) 0%, hsl(158 58% 18% / 0.82) 50%, hsl(158 60% 10% / 0.92) 100%)',
+                'linear-gradient(180deg, hsl(162 58% 14% / 0.93) 0%, hsl(152 56% 20% / 0.9) 45%, hsl(158 62% 12% / 0.94) 100%)',
             }}
           />
+          <div className="absolute inset-0 surface-grid opacity-45" aria-hidden="true" />
         </div>
 
         <div className="relative z-10 max-w-[1200px] mx-auto px-6 text-center">
@@ -812,14 +827,14 @@ export default function LandingPage() {
             </Eyebrow>
           </Reveal>
           <Reveal delay={120}>
-            <h2 className="font-serif text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-[1.05] tracking-tight mt-6 max-w-4xl mx-auto">
+            <h2 className="font-serif uppercase text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-[1.05] tracking-tight mt-6 max-w-4xl mx-auto text-[#f3efe4]">
               Talvez o que esteja faltando
               <br />
-              <em className="not-italic text-amber-200">não é força.</em>
+              <em className="not-italic text-[#ead687]">não é força.</em>
             </h2>
           </Reveal>
           <Reveal delay={260}>
-            <p className="font-serif text-3xl sm:text-4xl md:text-5xl text-amber-100 mt-4 italic">
+            <p className="font-serif text-3xl sm:text-4xl md:text-5xl text-[#f4e9cf] mt-4 italic">
               É direção.
             </p>
           </Reveal>
@@ -834,8 +849,8 @@ export default function LandingPage() {
           <Reveal delay={620}>
             <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-5">
               <CTAButton size="lg">Quero começar agora</CTAButton>
-              <div className="flex items-center gap-2 text-sm text-amber-50/75">
-                <ShieldCheck className="h-4 w-4 text-amber-200" />
+              <div className="flex items-center gap-2 text-sm text-amber-50/75 font-medium">
+                <ShieldCheck className="h-4 w-4 text-[#ead687]" />
                 <span>R$ 19,90 · Acesso imediato</span>
               </div>
             </div>
