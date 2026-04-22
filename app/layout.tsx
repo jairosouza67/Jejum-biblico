@@ -1,5 +1,4 @@
 import { DM_Sans, Cormorant_Garamond, JetBrains_Mono } from 'next/font/google'
-import Script from 'next/script'
 import './globals.css'
 import { ThemeProvider } from '@/components/theme-provider'
 import { Toaster } from '@/components/ui/sonner'
@@ -40,7 +39,6 @@ export default function RootLayout({
   return (
     <html lang="pt-BR" suppressHydrationWarning>
       <body className={`${dmSans.variable} ${cormorant.variable} ${jetbrainsMono.variable} font-sans bg-brand-cream text-brand-forest-dark antialiased`}>
-        <Script src="https://apps.abacus.ai/chatllm/appllm-lib.js" strategy="afterInteractive" />
         <ThemeProvider
           attribute="class"
           defaultTheme="light"
