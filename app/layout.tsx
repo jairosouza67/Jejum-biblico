@@ -13,8 +13,8 @@ export const metadata: Metadata = {
   title: 'Jejum Bíblico na Prática — Um guia simples para jejuar com propósito',
   description: 'Aprenda a praticar o jejum de forma bíblica, com direção, equilíbrio e propósito — mesmo que você nunca tenha feito antes.',
   icons: {
-    icon: '/favicon.svg',
-    shortcut: '/favicon.svg',
+    icon: '/favicon.png',
+    shortcut: '/favicon.png',
   },
   openGraph: {
     title: 'Jejum Bíblico na Prática',
